@@ -392,13 +392,22 @@ $fetchResult = mysqli_query($con, $fetchSql);
 
                     <td>
 
-                        <button class="action-btn edit-btn">
+                    <a href='edit_doctor.php?id=<?php echo $doctor['id']; ?>' >
+                        <button type="button" class="action-btn edit-btn">
                             Edit
                         </button>
 
-                        <button class="action-btn delete-btn">
-                            Delete
-                        </button>
+                    </a>
+
+                        <a href="delete_doctor.php?id=<?php echo $doctor['id']; ?>" 
+
+                            onclick="return confirm('Are you sure you want to delete this doctor?');">
+
+                            <button type="button" class="action-btn delete-btn">
+                                Delete
+                            </button>
+
+                        </a>
 
                     </td>
 

@@ -226,7 +226,7 @@ if(mysqli_num_rows($result) == 1){
 
         <div class="profile-actions">
 
-            <a href="edit_profile.php" class="profile-btn">
+            <a href="editUserProfile.php" class="profile-btn">
                 Edit Profile
             </a>
 

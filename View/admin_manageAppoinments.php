@@ -33,6 +33,10 @@ if(isset($_POST['approve'])){
     $result = mysqli_query($con, $sql);
 
     if($result){
+            // STORE IN SESSION
+        $_SESSION['approved_date'][$appointment_id] = $approved_date;
+        $_SESSION['approved_time'][$appointment_id] = $approved_time;
+        
         $success = "Appointment Approved Successfully!";
     }
 }
@@ -289,11 +293,11 @@ $result = mysqli_query($con, $sql);
                     </td>
 
                     <td>
-                        <?= $row['requested_date'] ?>
+                       <?= date("d F, Y", strtotime($row['requested_date'])) ?>
                     </td>
 
                     <td>
-                        <?= $row['requested_time'] ?>
+                        <?= date("h:i A", strtotime($row['requested_time'])) ?>
                     </td>
 
                     <td>

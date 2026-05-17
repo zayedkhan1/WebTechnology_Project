@@ -280,7 +280,7 @@ $recent_result = mysqli_query($con, $recent_sql);
         <h3>Admin Menu</h3>
 
         <ul>
-            <li><a href="#">📊 Dashboard</a></li>
+            <li><a href="admin.php">📊 Dashboard</a></li>
             <li><a href="admin_manageAppoinments.php">📅 Manage Appointments</a></li>
             <li><a href="manage_doc.php">👨‍⚕️ Manage Doctors</a></li>
             <li><a href="#">⚙️ Settings</a></li>

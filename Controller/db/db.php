@@ -10,7 +10,7 @@ if(!$con){
     die('not connected'.mysqli_error_connect());
 
 }else{
-    echo "connected successfully";
+    echo " ";
 }
 
 

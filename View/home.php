@@ -321,11 +321,11 @@ session_start();
     <span class="hero-badge">⭐Trusted Healthcare Appointment Platform</span>
     <h1>Book Doctor Appointments Easily & Quickly</h1>
     <p>
-      MediCare helps patients connect with experienced doctors,
+      Appointix helps patients connect with experienced doctors,
       schedule appointments online, and receive quality healthcare
       services without hassle.
     </p>
-    <a href="/doc/doctors.php" class="btn">Book Appointment</a>
+    <a href="doctors.php" class="btn">Book Appointment</a>
   </div>
 
   <img style="width:550px; height:300px;"
@@ -336,14 +336,14 @@ session_start();
 <!-- ===== Trust Bar ===== -->
 <section class="trust">
   <div>👨‍⚕️ 50+ Expert Doctors</div>
-  <div>📅 20,000+ Appointments Booked</div>
+  <div>📅 20,00+ Appointments Booked</div>
   <div>⏰ 24/7 Online Support</div>
   <div>💜 Trusted Healthcare Service</div>
 </section>
 
 <!-- ===== Features ===== -->
 <section class="features">
-  <h2>Why Choose MediCare?</h2>
+  <h2>Why Choose Appointix?</h2>
   <p>We provide reliable and modern healthcare appointment services</p>
 
   <div class="features-grid">
@@ -364,7 +364,7 @@ session_start();
       </div>
       <h3>Easy Appointment Booking</h3>
       <p>
-        Book your doctor appointments online anytime with a simple process.
+        Book your doctor appointments with Appentix anytime with a simple process.
       </p>
     </div>
 
@@ -505,7 +505,7 @@ session_start();
     Book your doctor appointment today and get trusted healthcare services easily.
   </p>
 
-  <a href="#" class="btn">Get Started</a>
+  <a href="doctors.php" class="btn">Get Started</a>
 </section>
 
 

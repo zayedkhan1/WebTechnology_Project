@@ -262,7 +262,7 @@ $recent_result = mysqli_query($con, $recent_sql);
 
 <!-- Navbar -->
 <nav class="navbar">
-    <a href="home.php" class="logo">DOCAdmin</a>
+    <a href="home.php" class="logo">Appointix</a>
 
     <ul class="nav-links">
         <li><a href="#">Dashboard</a></li>

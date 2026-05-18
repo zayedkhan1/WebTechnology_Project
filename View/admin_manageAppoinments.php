@@ -25,8 +25,8 @@ if(isset($_POST['approve'])){
  
             SET 
             status = 'approved',
-            requested_date = '$approved_date',
-            requested_time = '$approved_time'
+            approved_date = '$approved_date',
+            approved_time = '$approved_time'
 
             WHERE id = $appointment_id";
 

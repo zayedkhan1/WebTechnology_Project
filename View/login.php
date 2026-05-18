@@ -1,59 +1,66 @@
-
 <?php
 session_start();
 include '../Controller/db/db.php';
-$showError=false;
-$admin_email = "admin@.com";
-$admin_password = "admin123";
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
+$showError = false;
 
-   
-   $email=$_POST['email'];
-   $password= $_POST['password'];
+if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
+    // GET USER BY EMAIL
+    $sql = "SELECT * FROM users WHERE email='$email'";
+    $result = mysqli_query($con, $sql);
 
-     if ($email == $admin_email && $password == $admin_password) {
-        $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = 'Admin';
-        $_SESSION['role'] = 'admin';
-        header("Location: admin.php"); // or admin_panel.php
-        exit;
+    if(mysqli_num_rows($result) == 1){
+
+        $row = mysqli_fetch_assoc($result);
+
+        // VERIFY HASHED PASSWORD
+        if(password_verify($password, $row['password'])){
+
+            // STORE SESSION
+            $_SESSION['loggedin'] = true;
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['username'] = $row['name'];
+            $_SESSION['role'] = $row['role'];
+
+            // GET ROLE
+            $role = $row['role'];
+
+            // ROLE BASED LOGIN
+            if($role == "Admin"){
+
+                header("Location: admin.php");
+                exit;
+
+            }else if($role == "Doctor"){
+
+                header("Location: contact.php");
+                exit;
+
+            }else{
+
+                header("Location: home.php");
+                exit;
+
+            }
+
+        }else{
+
+            $showError = "Invalid password";
+
+        }
+
     }else{
 
-
-$sql="SELECT * FROM users WHERE email='$email' AND password='$password' ";
-  $result=mysqli_query($con,$sql);
-  $num=mysqli_num_rows($result);
-
-  if($num==1){
-            $showError="You are logged in";
-    
-    // session_start();
-     $_SESSION['loggedin']=true;
-    $_SESSION['email']=$email;
-    $_SESSION['role'] = 'user'; // Set user role in session
-    $_SESSION['id']=mysqli_fetch_assoc($result)['id']; // Store user ID in session
-
-
-    header("Location:home.php");
-}else{
-        $showError="Invelid credentials";
-
-  }
+        $showError = "Email not found";
 
     }
-
 }
-
-
-
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -184,7 +191,7 @@ $sql="SELECT * FROM users WHERE email='$email' AND password='$password' ";
         <h2>Login to Appointix</h2>
         <p>Please enter your details</p>
 
-        <form action  method="POST">
+        <form  method="POST">
             <div class="input-group">
                 <label>Email</label>
                 <input type="email" name="email" placeholder="Enter your email" required>

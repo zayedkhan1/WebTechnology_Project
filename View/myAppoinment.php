@@ -214,7 +214,7 @@ $result = mysqli_query($con, $sql);
                     </td>
 
                     <td>
-                        <?= htmlspecialchars($row['requested_date']) ?>
+                      <?= date("d F, Y", strtotime($row['requested_date'])) ?>
                     </td>
 
                     <td>

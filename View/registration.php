@@ -3,35 +3,37 @@
 include '../Controller/db/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $password = $_POST['password']; // For simplicity, storing plain text (not recommended)
+
+    // HASH PASSWORD
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
     $role = $_POST['role'];
     $dob = $_POST['dob'];
     $blood_group = $_POST['blood_group'];
 
-    // Insert user into database
-    $sql = "INSERT INTO users (name, email, phone, password, role, dob, blood_group) VALUES ('$name', '$email', '$phone', '$password', '$role', '$dob', '$blood_group')";
-    
+    $sql = "INSERT INTO users 
+    (name, email, phone, password, role, dob, blood_group) 
+    VALUES 
+    ('$name', '$email', '$phone', '$password', '$role', '$dob', '$blood_group')";
+
     if (mysqli_query($con, $sql)) {
-        echo "Registration successful!";
-        // Redirect to login page or dashboard
+
         header("Location: login.php");
         exit();
+
     } else {
+
         echo "Error: " . mysqli_error($con);
+
     }
 }
 
 
-
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -181,7 +183,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <p>Create your account for Appointment Booking System</p>
     </div>
 
-    <form action="" method="POST">
+    <form action=""  method="POST">
 
       <!-- ID -->
       <!-- <div class="input-box">

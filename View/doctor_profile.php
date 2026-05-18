@@ -1,20 +1,27 @@
 <?php
 include '../Controller/db/db.php';
 session_start();
-// if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+
+// CHECK LOGIN
+// if(!isset($_SESSION['id'])){
 //     header("location: login.php");
 //     exit;
 // }
-$role = $_SESSION['role']; // "doctor" or "patient"
-$email = $_SESSION['email'];
 
-$sql = "SELECT name, email, phone, dt FROM users WHERE email='$email'";
+// GET DOCTOR ID FROM SESSION
+$doc_id = $_SESSION['id'];
+
+// FETCH DOCTOR DATA
+$sql = "SELECT doc_name,doc_specialty, consult_fee,available_days,
+        FROM doctors 
+        WHERE doc_id='$doc_id'";
+
 $result = mysqli_query($con, $sql);
 
 if(mysqli_num_rows($result) == 1){
     $row = mysqli_fetch_assoc($result);
 }else{
-    echo "User not found.";
+    echo "Doctor not found.";
     exit;
 }
 ?>
@@ -24,7 +31,7 @@ if(mysqli_num_rows($result) == 1){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>User Profile</title>
+<title>Doctor Profile</title>
 
 <style>
 
@@ -37,11 +44,10 @@ if(mysqli_num_rows($result) == 1){
         }
 
         body{
-            background:#f4f4ff;
+            background:#f4f6ff;
         }
 
         /* ================= PROFILE WRAPPER ================= */
-
         .profile-page{
             width:100%;
             min-height:100vh;
@@ -52,10 +58,9 @@ if(mysqli_num_rows($result) == 1){
         }
 
         /* ================= PROFILE CARD ================= */
-
         .profile-card{
             width:100%;
-            max-width:550px;
+            max-width:600px;
             background:#fff;
             border-radius:25px;
             padding:40px;
@@ -69,17 +74,16 @@ if(mysqli_num_rows($result) == 1){
         }
 
         /* ================= HEADER ================= */
-
         .profile-header{
             margin-bottom:30px;
         }
 
         .profile-avatar{
-            width:90px;
-            height:90px;
-            background:#ede9fe;
-            color:#6d28d9;
-            font-size:40px;
+            width:95px;
+            height:95px;
+            background:#dbeafe;
+            color:#1d4ed8;
+            font-size:42px;
             display:flex;
             justify-content:center;
             align-items:center;
@@ -95,14 +99,13 @@ if(mysqli_num_rows($result) == 1){
         }
 
         .profile-header p{
-            color:#7c3aed;
+            color:#2563eb;
             font-weight:bold;
         }
 
         /* ================= INFO ================= */
-
         .profile-info{
-            background:#f8f5ff;
+            background:#f1f5ff;
             padding:20px;
             border-radius:15px;
             text-align:left;
@@ -130,7 +133,6 @@ if(mysqli_num_rows($result) == 1){
         }
 
         /* ================= BUTTONS ================= */
-
         .profile-actions{
             display:flex;
             gap:15px;
@@ -140,7 +142,7 @@ if(mysqli_num_rows($result) == 1){
 
         .profile-btn{
             text-decoration:none;
-            background:#7c3aed;
+            background:#2563eb;
             color:#fff;
             padding:12px 22px;
             border-radius:12px;
@@ -149,7 +151,7 @@ if(mysqli_num_rows($result) == 1){
         }
 
         .profile-btn:hover{
-            background:#5b21b6;
+            background:#1d4ed8;
         }
 
         .profile-btn.secondary{
@@ -162,9 +164,7 @@ if(mysqli_num_rows($result) == 1){
         }
 
         /* ================= RESPONSIVE ================= */
-
         @media(max-width:600px){
-
             .profile-card{
                 padding:25px;
             }
@@ -172,7 +172,6 @@ if(mysqli_num_rows($result) == 1){
             .profile-header h2{
                 font-size:22px;
             }
-
         }
 
 </style>
@@ -190,19 +189,18 @@ if(mysqli_num_rows($result) == 1){
         <div class="profile-header">
 
             <div class="profile-avatar">
-                👤
+                🩺
             </div>
 
             <h2>
                 <?php echo $row['name']; ?>
             </h2>
 
-            <p>User Account</p>
+            <p>Doctor Profile</p>
 
         </div>
 
         <!-- ================= INFO ================= -->
-
         <div class="profile-info">
 
             <div class="info-row">
@@ -216,6 +214,16 @@ if(mysqli_num_rows($result) == 1){
             </div>
 
             <div class="info-row">
+                <span>Specialty</span>
+                <span><?php echo $row['specialty']; ?></span>
+            </div>
+
+            <div class="info-row">
+                <span>Experience</span>
+                <span><?php echo $row['experience']; ?> Years</span>
+            </div>
+
+            <div class="info-row">
                 <span>Joined</span>
                 <span><?php echo $row['dt']; ?></span>
             </div>
@@ -223,36 +231,15 @@ if(mysqli_num_rows($result) == 1){
         </div>
 
         <!-- ================= ACTIONS ================= -->
-
         <div class="profile-actions">
 
-            <a href="editUserProfile.php" class="profile-btn">
+            <a href="editDoctorProfile.php" class="profile-btn">
                 Edit Profile
             </a>
-<!-- if role is patient i want to show this button  -->
-            <!-- <a href="myAppoinment.php" class="profile-btn secondary">
+
+            <a href="doctorAppointments.php" class="profile-btn secondary">
                 My Appointments
-            </a> -->
-           
-            <!-- if role is doctor then i want ot show this button  -->
-            <!-- <a href="doctor_appoinment.php" class="profile-btn secondary">
-                Doctor Appointments
-            </a> -->
-
-                <?php if($role == "Patient"){ ?>
-        <!-- PATIENT BUTTON -->
-        <a href="myAppoinment.php" class="profile-btn secondary">
-            My Appointments
-        </a>
-    <?php } ?>
-
-
-    <?php if($role == "Doctor"){ ?>
-        <!-- DOCTOR BUTTON -->
-        <a href="doctor_appoinment.php" class="profile-btn secondary">
-            Doctor Appointments
-        </a>
-    <?php } ?>
+            </a>
 
         </div>
 

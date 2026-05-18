@@ -4,10 +4,10 @@ session_start();
 
 // ================= LOGIN CHECK =================
 
-// if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
-//     header("location: login.php");
-//     exit;
-// }
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
+    header("location: login.php");
+    exit;
+}
 
 // ================= CHECK DOCTOR ID =================
 

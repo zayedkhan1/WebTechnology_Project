@@ -66,7 +66,7 @@ $result = mysqli_query($con, $sql);
         }
 
         th{
-            background:#0d6efd;
+            background:#7c3aed;
             color:white;
             padding:12px;
             text-align:left;
@@ -107,10 +107,12 @@ $result = mysqli_query($con, $sql);
 </head>
 
 <body>
+    <?php include 'shared/navbar.php'; ?>
 
-<div class="header">
+
+<!-- <div class="header">
     My Appointments Dashboard
-</div>
+</div> -->
 
 <div class="container">
     <div class="card">
@@ -144,6 +146,7 @@ $result = mysqli_query($con, $sql);
         </table>
     </div>
 </div>
+<?php include 'shared/footer.php'; ?>
 
 </body>
 </html>

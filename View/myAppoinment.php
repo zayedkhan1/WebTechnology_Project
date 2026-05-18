@@ -225,23 +225,22 @@ $result = mysqli_query($con, $sql);
 
                     <td>
 <?php
+$approvedDate = $row['approved_date'] ?? null;
+$approvedTime = $row['approved_time'] ?? null;
 
+if (!empty($approvedDate) && !empty($approvedTime)) {
 
-
-$id = $row['id'];
-
-if(isset($_SESSION['approved_date'][$id])){
-
-    echo date("d F, Y", strtotime($_SESSION['approved_date'][$id]));
+    echo date("d F, Y", strtotime($approvedDate));
     echo " | ";
+    echo date("h:i A", strtotime($approvedTime));
 
-    echo date("h:i A", strtotime($_SESSION['approved_time'][$id]));
-
-}else{
+} else {
     echo "-";
 }
-
 ?>
+
+
+
 </td>
 
                 </tr>

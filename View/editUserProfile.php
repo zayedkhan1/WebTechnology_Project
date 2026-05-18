@@ -173,6 +173,8 @@ body{
 
 </head>
 <body>
+    <?php include 'shared/navbar.php'; ?>
+
 
 <div class="profile-page">
 
@@ -219,6 +221,7 @@ body{
     </div>
 
 </div>
+<?php include 'shared/footer.php'; ?>
 
 </body>
 </html>

@@ -448,11 +448,7 @@ session_start();
       <h4>Dr. Neymar</h4>
       <p>Phesio Tehrapyst</p>
     </div>
-    <div class="doctor-card">
-      <img src="../Controller/Assets/hamid_doc.png">
-      <h4>Dr. Hamid</h4>
-      <p>Code specialist</p>
-    </div>
+   
 
   </div>
 </section>

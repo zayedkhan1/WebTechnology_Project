@@ -140,6 +140,7 @@ button:hover{
 
 </head>
 <body>
+    <?php include 'shared/navbar.php'; ?>
 
 <div class="container">
 
@@ -190,6 +191,7 @@ button:hover{
     </form>
 
 </div>
+    <?php include 'shared/footer.php'; ?>
 
 </body>
 </html>

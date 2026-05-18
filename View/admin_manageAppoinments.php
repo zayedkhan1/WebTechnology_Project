@@ -32,13 +32,13 @@ if(isset($_POST['approve'])){
 
     $result = mysqli_query($con, $sql);
 
-    if($result){
-            // STORE IN SESSION
-        $_SESSION['approved_date'][$appointment_id] = $approved_date;
-        $_SESSION['approved_time'][$appointment_id] = $approved_time;
+    // if($result){
+    //         // STORE IN SESSION
+    //     $_SESSION['approved_date'][$appointment_id] = $approved_date;
+    //     $_SESSION['approved_time'][$appointment_id] = $approved_time;
         
-        $success = "Appointment Approved Successfully!";
-    }
+    //     $success = "Appointment Approved Successfully!";
+    // }
 }
 
 // ================= FETCH PENDING APPOINTMENTS =================

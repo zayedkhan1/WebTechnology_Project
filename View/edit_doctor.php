@@ -1,5 +1,5 @@
 <?php
-include "../Controller/db/db.php";
+include "../Model/db.php";
 
 $success = "";
 $error = "";
@@ -62,82 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
 <meta charset="UTF-8">
 <title>Edit Doctor</title>
-
-<style>
-body{
-    font-family: Arial;
-    background:#f4f4ff;
-    margin:0;
-    padding:40px;
-}
-
-.container{
-    max-width:800px;
-    margin:auto;
-    background:#fff;
-    padding:30px;
-    border-radius:15px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.1);
-}
-
-h2{
-    text-align:center;
-    color:#6d28d9;
-    margin-bottom:20px;
-}
-
-.input-group{
-    margin-bottom:15px;
-}
-
-label{
-    display:block;
-    margin-bottom:6px;
-    font-weight:bold;
-}
-
-input, textarea{
-    width:100%;
-    padding:12px;
-    border:1px solid #ddd;
-    border-radius:8px;
-}
-
-textarea{
-    height:120px;
-    resize:none;
-}
-
-button{
-    background:#7c3aed;
-    color:white;
-    padding:12px 20px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    width:100%;
-    font-size:16px;
-}
-
-button:hover{
-    background:#5b21b6;
-}
-
-.success{
-    background:#dcfce7;
-    padding:10px;
-    margin-bottom:15px;
-    border-radius:8px;
-}
-
-.error{
-    background:#fee2e2;
-    padding:10px;
-    margin-bottom:15px;
-    border-radius:8px;
-}
-</style>
-
+<link rel="stylesheet" href="css/editDoctors.css">
 </head>
 <body>
     <?php include 'shared/navbar.php'; ?>

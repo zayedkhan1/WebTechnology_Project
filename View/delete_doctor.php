@@ -1,5 +1,5 @@
 <?php
-include "../Controller/db/db.php";
+include "../Model/db.php";
 
 // ================= CHECK ID =================
 if (!isset($_GET['id'])) {

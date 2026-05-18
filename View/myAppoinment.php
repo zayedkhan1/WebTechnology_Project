@@ -1,5 +1,5 @@
 <?php
-include '../Controller/db/db.php';
+include '../Model/db.php';
 session_start();
 
 // if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
@@ -26,133 +26,8 @@ $result = mysqli_query($con, $sql);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Appointments</title>
 
-<style>
 
-        /* ================= GLOBAL ================= */
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body{
-            background:#f4f4ff;
-        }
-
-        /* ================= PAGE WRAPPER ================= */
-        .page-wrapper{
-            width:100%;
-            min-height:100vh;
-            padding:50px 20px;
-            display:flex;
-            justify-content:center;
-        }
-
-        /* ================= CONTAINER ================= */
-        .container{
-            width:100%;
-            max-width:1100px;
-            background:#fff;
-            border-radius:20px;
-            padding:35px;
-            box-shadow:0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        /* ================= TITLE ================= */
-        .title{
-            text-align:center;
-            margin-bottom:30px;
-        }
-
-        .title h1{
-            font-size:36px;
-            color:#6d28d9;
-            margin-bottom:8px;
-        }
-
-        .title p{
-            color:#666;
-            font-size:15px;
-        }
-
-        /* ================= TABLE ================= */
-        .table-wrapper{
-            overflow-x:auto;
-        }
-
-        table{
-            width:100%;
-            border-collapse:collapse;
-            min-width:800px;
-        }
-
-        thead{
-            background:#7c3aed;
-            color:white;
-        }
-
-        th{
-            padding:15px;
-            text-align:left;
-            font-size:15px;
-        }
-
-        td{
-            padding:15px;
-            border-bottom:1px solid #eee;
-            font-size:14px;
-        }
-
-        tbody tr:hover{
-            background:#f8f5ff;
-        }
-
-        /* ================= STATUS ================= */
-        .status{
-            padding:6px 12px;
-            border-radius:20px;
-            font-size:13px;
-            font-weight:bold;
-            display:inline-block;
-        }
-
-        .approved{
-            background:#dcfce7;
-            color:#166534;
-        }
-
-        .pending{
-            background:#fef3c7;
-            color:#92400e;
-        }
-
-        .rejected{
-            background:#fee2e2;
-            color:#991b1b;
-        }
-
-        /* ================= EMPTY ================= */
-        .empty{
-            text-align:center;
-            padding:40px;
-            color:#666;
-            font-size:18px;
-        }
-
-        /* ================= RESPONSIVE ================= */
-        @media(max-width:768px){
-            .container{
-                padding:20px;
-            }
-
-            .title h1{
-                font-size:28px;
-            }
-        }
-
-</style>
-
+<link rel="stylesheet" href="css/myAppoinment.css">
 </head>
 <body>
 

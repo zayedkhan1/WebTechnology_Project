@@ -1,6 +1,9 @@
+
+
+
 <?php
 session_start();
-include '../Controller/db/db.php';
+include '../Model/db.php';
 
 $showError = false;
 
@@ -62,6 +65,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,99 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Login | Appointix</title>
     <link rel="stylesheet" href="css/style.css">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f0ff;
-        }
-
-        .login-page {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .login-box {
-            width: 500px;
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(106, 13, 173, 0.2);
-        }
-
-        .login-box h2 {
-            text-align: center;
-            color: #6a0dad;
-            margin-bottom: 10px;
-        }
-
-        .login-box p {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #666;
-            
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #6a0dad;
-            font-size: 16px;
-            font-weight: bold;
-       }
-        
-
-        .input-group input {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #6a0dad ;
-            border-radius: 8px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        .input-group input:focus {
-            border-color: #6a0dad;
-            box-shadow: 0 0 5px rgba(106, 13, 173, 0.4);
-        }
-
-        .login-btn {
-            width: 100%;
-            padding: 10px;
-            background: #6a0dad;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        .login-btn:hover {
-            background: #520b9a;
-        }
-
-        .extra-links {
-            text-align: center;
-            margin-top: 12px;
-            font-size: 14px;
-        }
-
-        .extra-links a {
-            color: #6a0dad;
-            text-decoration: none;
-        }
-
-        .extra-links a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
@@ -191,7 +105,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <h2>Login to Appointix</h2>
         <p>Please enter your details</p>
 
-        <form  method="POST">
+        <form   method="POST">
             <div class="input-group">
                 <label>Email</label>
                 <input type="email" name="email" placeholder="Enter your email" required>

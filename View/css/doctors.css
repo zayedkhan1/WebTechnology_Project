@@ -1,0 +1,164 @@
+
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f4ff;
+        }
+
+        /* ===== Main Section ===== */
+
+        .doctor-section{
+            width:100%;
+            min-height:100vh;
+            padding:50px 8%;
+        }
+
+        .doctor-title{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .doctor-title h1{
+            font-size:42px;
+            color:#5b21b6;
+            margin-bottom:10px;
+        }
+
+        .doctor-title p{
+            color:#666;
+            font-size:17px;
+        }
+
+        /* ===== Doctor Cards ===== */
+
+        .doctor-container{
+            display:grid;
+            grid-template-columns:repeat(2,minmax(320px,1fr));
+            gap:30px;
+        }
+
+        .doctor-card{
+            background:#fff;
+            border-radius:20px;
+            padding:30px;
+            box-shadow:0 8px 25px rgba(0,0,0,0.08);
+            transition:0.3s;
+            border-top:5px solid #7c3aed;
+        }
+
+        .doctor-card:hover{
+            transform:translateY(-8px);
+        }
+
+        .doctor-header{
+            display:flex;
+            align-items:center;
+            gap:15px;
+            margin-bottom:20px;
+        }
+
+        .doctor-image{
+            width:70px;
+            height:70px;
+            border-radius:50%;
+            background:#ede9fe;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:28px;
+            color:#6d28d9;
+            font-weight:bold;
+        }
+
+        .doctor-info h2{
+            font-size:24px;
+            color:#222;
+            margin-bottom:5px;
+        }
+
+        .doctor-info p{
+            color:#7c3aed;
+            font-weight:bold;
+            font-size:15px;
+        }
+
+        .doctor-details{
+            margin-top:15px;
+        }
+
+        .detail-box{
+            background:#f8f5ff;
+            padding:12px 15px;
+            border-radius:10px;
+            margin-bottom:12px;
+        }
+
+        .detail-box span{
+            font-weight:bold;
+            color:#5b21b6;
+            display:block;
+            margin-bottom:5px;
+        }
+
+        .detail-box p{
+            color:#444;
+            line-height:1.6;
+            font-size:15px;
+        }
+
+        /* ===== Fee Badge ===== */
+
+        .fee{
+            margin-top:20px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .fee h3{
+            color:#16a34a;
+            font-size:24px;
+        }
+
+        .book-btn{
+            text-decoration:none;
+            background:#7c3aed;
+            color:#fff;
+            padding:12px 22px;
+            border-radius:10px;
+            transition:0.3s;
+            font-weight:bold;
+        }
+
+        .book-btn:hover{
+            background:#5b21b6;
+        }
+
+        /* ===== No Doctor ===== */
+
+        .no-data{
+            text-align:center;
+            color:#777;
+            font-size:20px;
+            margin-top:50px;
+        }
+
+        @media(max-width:768px){
+
+            .doctor-title h1{
+                font-size:32px;
+            }
+
+            .doctor-card{
+                padding:20px;
+            }
+
+        }
+
+ 

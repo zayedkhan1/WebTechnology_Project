@@ -1,0 +1,139 @@
+
+        /* ================= GLOBAL ================= */
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f6ff;
+        }
+
+        /* ================= PROFILE WRAPPER ================= */
+        .profile-page{
+            width:100%;
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:40px 20px;
+        }
+
+        /* ================= PROFILE CARD ================= */
+        .profile-card{
+            width:100%;
+            max-width:600px;
+            background:#fff;
+            border-radius:25px;
+            padding:40px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.08);
+            text-align:center;
+            transition:0.3s;
+        }
+
+        .profile-card:hover{
+            transform:translateY(-5px);
+        }
+
+        /* ================= HEADER ================= */
+        .profile-header{
+            margin-bottom:30px;
+        }
+
+        .profile-avatar{
+            width:95px;
+            height:95px;
+            background:#dbeafe;
+            color:#1d4ed8;
+            font-size:42px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            border-radius:50%;
+            margin:0 auto 15px auto;
+            font-weight:bold;
+        }
+
+        .profile-header h2{
+            font-size:28px;
+            color:#222;
+            margin-bottom:5px;
+        }
+
+        .profile-header p{
+            color:#2563eb;
+            font-weight:bold;
+        }
+
+        /* ================= INFO ================= */
+        .profile-info{
+            background:#f1f5ff;
+            padding:20px;
+            border-radius:15px;
+            text-align:left;
+            margin-bottom:25px;
+        }
+
+        .info-row{
+            display:flex;
+            justify-content:space-between;
+            padding:12px 0;
+            border-bottom:1px solid #e5e7eb;
+        }
+
+        .info-row:last-child{
+            border-bottom:none;
+        }
+
+        .info-row span:first-child{
+            font-weight:bold;
+            color:#444;
+        }
+
+        .info-row span:last-child{
+            color:#333;
+        }
+
+        /* ================= BUTTONS ================= */
+        .profile-actions{
+            display:flex;
+            gap:15px;
+            justify-content:center;
+            flex-wrap:wrap;
+        }
+
+        .profile-btn{
+            text-decoration:none;
+            background:#2563eb;
+            color:#fff;
+            padding:12px 22px;
+            border-radius:12px;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .profile-btn:hover{
+            background:#1d4ed8;
+        }
+
+        .profile-btn.secondary{
+            background:#e5e7eb;
+            color:#333;
+        }
+
+        .profile-btn.secondary:hover{
+            background:#d1d5db;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media(max-width:600px){
+            .profile-card{
+                padding:25px;
+            }
+
+            .profile-header h2{
+                font-size:22px;
+            }
+        }

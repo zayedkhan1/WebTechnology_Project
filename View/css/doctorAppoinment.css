@@ -1,31 +1,4 @@
-<?php
-session_start();
-include '../Model/db.php';
 
-// if(!isset($_SESSION['doctor_id'])){
-//     header("location: login.php");
-//     exit;
-// }
-
-$doctor_id = $_SESSION['id'];
-
-$sql = "SELECT * FROM appointments 
-        WHERE doc_id = '$doctor_id'
-        ORDER BY created_at DESC";
-
-$result = mysqli_query($con, $sql);
-?>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Doctor Appointments</title>
-
-<style>
         body{
             margin:0;
             font-family: Arial, sans-serif;
@@ -102,51 +75,3 @@ $result = mysqli_query($con, $sql);
                 font-size:12px;
             }
         }
-</style>
-
-</head>
-
-<body>
-    <?php include 'shared/navbar.php'; ?>
-
-
-<!-- <div class="header">
-    My Appointments Dashboard
-</div> -->
-
-<div class="container">
-    <div class="card">
-
-        <h3>Appointments List</h3>
-
-        <table>
-            <tr>
-                <th>Patient Name</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Status</th>
-            </tr>
-
-            <?php while($row = mysqli_fetch_assoc($result)) { ?>
-
-            <tr>
-                <td><?php echo $row['email']; ?></td>
-                <td><?php echo $row['problem']; ?></td>
-                <td><?php echo $row['requested_date']; ?></td>
-                <td>
-                    <?php 
-                    $status = strtolower($row['status']);
-                    ?>
-                  
-                </td>
-            </tr>
-
-            <?php } ?>
-
-        </table>
-    </div>
-</div>
-<?php include 'shared/footer.php'; ?>
-
-</body>
-</html>

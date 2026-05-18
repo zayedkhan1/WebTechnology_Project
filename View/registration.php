@@ -1,6 +1,6 @@
 
 <?php
-include '../Controller/db/db.php';
+include '../Model/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -42,134 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Appointix Registration Form</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    body{
-    
-      min-height:100vh;
-      /* display:flex;
-      justify-content:center;
-      align-items:center; */
-      padding:0px 0px;
-    }
-       .main-content{
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        padding:30px 0px;
-         background-color: #f5f3ff;
-    }
-
-
-    .container{
-      width:100%;
-      max-width:700px;
-      background:#fff;
-      padding:35px;
-      border-radius:20px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.2);
-      margin-top:80px;
-    }
-
-    .title{
-      text-align:center;
-      margin-bottom:30px;
-    }
-
-    .title h1{
-      color:#6d28d9;
-      font-size:36px;
-      margin-bottom:10px;
-    }
-
-    .title p{
-      color:#666;
-      font-size:15px;
-    }
-
-    form{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-    }
-
-    .full-width{
-      grid-column:1 / 3;
-    }
-
-    .input-box{
-      display:flex;
-      flex-direction:column;
-    }
-
-    .input-box label{
-      margin-bottom:8px;
-      font-weight:bold;
-      color:#4c1d95;
-    }
-
-    .input-box input,
-    .input-box select{
-      padding:12px;
-      border:2px solid #d8b4fe;
-      border-radius:10px;
-      outline:none;
-      font-size:15px;
-      transition:0.3s;
-    }
-
-    .input-box input:focus,
-    .input-box select:focus{
-      border-color:#7c3aed;
-      box-shadow:0 0 8px rgba(124,58,237,0.3);
-    }
-
-    .checkbox{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-top:10px;
-      color:#4c1d95;
-      font-weight:bold;
-    }
-
-    .btn{
-      grid-column:1 / 3;
-      padding:14px;
-      border:none;
-      border-radius:12px;
-      background:#7c3aed;
-      color:white;
-      font-size:18px;
-      font-weight:bold;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    .btn:hover{
-      background:#5b21b6;
-      transform:scale(1.02);
-    }
- 
-    @media(max-width:700px){
-      form{
-        grid-template-columns:1fr;
-      }
-
-      .full-width,
-      .btn{
-        grid-column:1 / 2;
-      }
-    }
-
-  </style>
-
+ <link rel="stylesheet" href="css/registration.css">
 
 </head>
 <body>
